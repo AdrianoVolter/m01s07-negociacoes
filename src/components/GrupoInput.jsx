@@ -1,5 +1,13 @@
+import PropTypes from 'prop-types';
 function GrupoInput() {
-  
+
+const quandoAdicionar =(event)=>{
+    event.preventDefault();
+    console.log(event);
+}
+
+    
+
   return (
    
             <div className="row align-item-center col-md-8">
@@ -19,5 +27,11 @@ function GrupoInput() {
             </div>
   );
 }
+
+GrupoInput.propTypes = {
+    quandoAdicionar: PropTypes.func.isRequired,
+}
+
+
 
 export default GrupoInput;

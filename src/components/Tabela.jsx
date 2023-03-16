@@ -1,50 +1,50 @@
-function Tabela(){
+import PropTypes from 'prop-types';
+
+function Tabela(props){
+
+    const negociacoes = []
+
     return (
-        <table className="table table-hover table-bordered m-2">
-            <thead>
+
+        <table className="table table-hover table-bordered">
+            <thead className='bg bg-primary text-white'>
                 <tr>
-                    <th>DATA</th>
-                    <th>QUANTIDADE</th>
-                    <th>VALOR</th>
-                    <th>VOLUME</th>
+                    <th>Data</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Volume</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>10/10/2018</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>10000</td>
-                </tr>
-                <tr>
-                    <td>10/10/2018</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>10000</td>
-                </tr>
-                <tr>
-                    <td>10/10/2018</td>
-                    <td>100</td>
-
-                    <td>100</td>
-                    <td>10000</td>
-                </tr>
-                <tr>
-                    <td>10/10/2018</td>
-                    <td>100</td>
-
-                    <td>100</td>
-
-                    <td>10000</td>
-                </tr>
-            </tbody>
+            <tbody>{props.negociacoes}</tbody>
             <tfoot>
-
-            </tfoot>
+          <tr>
+            <td colspan="3"></td>
+            <td>R$ 5.775</td>
+          </tr>
+        </tfoot>
         </table>
-
-       
     )
 }
 
+Tabela.propTypes = {
+    negociacoes: PropTypes.array.isRequired,
+}
+
 export default Tabela;
+
+
+
+
+
+
+
+
+{/* props.negociacoes.map(negociacao => {
+                        return (
+                            <tr key={negociacao.id}>
+                                <td>{negociacao.data.getDate()}/{negociacao.data.getMonth() + 1}/{negociacao.data.getFullYear()}</td>
+                                <td>{negociacao.quantidade}</td>
+                                <td>{negociacao.valor}</td>
+                                <td>{negociacao.volume}</td>
+                            </tr>
+                        // ) */}
