@@ -1,12 +1,17 @@
 import GrupoInput from "./GrupoInput";
 import PropTypes from 'prop-types';
+
+
+
 function Formulario(props){
 
-    // const quandoAdicionar =(event)=>{
-    //     //event.preventDefault();
-    //     console.log(event);
-    // }
 
+
+
+
+
+
+   
     return(
 
         <form className="form container">
@@ -18,7 +23,7 @@ function Formulario(props){
                     className="form-group col-md-4">
                     <button 
                         onClick={props.quandoAdicionar}
-                        className="btn btn-primary m-4">
+                        className="btn btn-primary">
                         Adicionar
                     </button>
                 </div>
@@ -27,6 +32,10 @@ function Formulario(props){
         
     )
 
+}
+
+Formulario.propTypes = {
+    quandoAdicionar: PropTypes.func.isRequired,
 }
 
 

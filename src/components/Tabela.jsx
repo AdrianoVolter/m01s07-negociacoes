@@ -18,8 +18,7 @@ function Tabela(props){
             <tbody>{props.negociacoes}</tbody>
             <tfoot>
           <tr>
-            <td colspan="3"></td>
-            <td>R$ 5.775</td>
+            
           </tr>
         </tfoot>
         </table>
