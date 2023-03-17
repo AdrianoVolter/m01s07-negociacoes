@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 function Tabela(props){
 
-    const negociacao = props.negociacoes;
-
+const negociacoes = ["data", "quantidade", "valor", "volume"]
+    
     return (
 
         <table className="table table-hover table-bordered">
@@ -16,17 +16,19 @@ function Tabela(props){
                 </tr>
             </thead>
             <tbody>
-                {props.negociacoes.map(negociacao => {
-
-                    return (
-                        <tr key={negociacao.id}>
-                            <td>{negociacao.data.getDate()}/{negociacao.data.getMonth() + 1}/{negociacao.data.getFullYear()}</td>
-                            <td>{negociacao.quantidade}</td>
-                            <td>{negociacao.valor}</td>
-                            <td>{negociacao.volume}</td>
-                        </tr>
+                {
+                    props.negociacoes.map(negociacao => {
+                        return (
+                            <tr key={negociacao.id}>
+                                <td>{negociacao.data.getDate()}/{negociacao.data.getMonth() + 1}/{negociacao.data.getFullYear()}</td>
+                                <td>{negociacao.quantidade}</td>
+                                <td>{negociacao.valor}</td>
+                                <td>{negociacao.volume}</td>
+                            </tr>
+                        )
+                    }
                     )
-                })} 
+                }
             </tbody>
             <tfoot>
           <tr>
@@ -38,7 +40,7 @@ function Tabela(props){
 }
 
 Tabela.propTypes = {
-    negociacoes: PropTypes.array.isRequired,
+    negociacao: PropTypes.array.isRequired,
 }
 
 export default Tabela;
