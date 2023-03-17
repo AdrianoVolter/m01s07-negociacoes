@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 function GrupoInput() {
 
-const quandoAdicionar =(event)=>{
-    event.preventDefault();
-    console.log(event);
-}
+    
 
     
 

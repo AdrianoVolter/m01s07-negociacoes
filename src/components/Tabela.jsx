@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function Tabela(props){
 
-    const negociacoes = []
+    const negociacao = props.negociacoes;
 
     return (
 
@@ -15,7 +15,19 @@ function Tabela(props){
                     <th>Volume</th>
                 </tr>
             </thead>
-            <tbody>{props.negociacoes}</tbody>
+            <tbody>
+                {props.negociacoes.map(negociacao => {
+
+                    return (
+                        <tr key={negociacao.id}>
+                            <td>{negociacao.data.getDate()}/{negociacao.data.getMonth() + 1}/{negociacao.data.getFullYear()}</td>
+                            <td>{negociacao.quantidade}</td>
+                            <td>{negociacao.valor}</td>
+                            <td>{negociacao.volume}</td>
+                        </tr>
+                    )
+                })} 
+            </tbody>
             <tfoot>
           <tr>
             
