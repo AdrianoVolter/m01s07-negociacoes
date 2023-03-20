@@ -1,24 +1,49 @@
 import PropTypes from 'prop-types';
 function GrupoInput() {
 
-    
 
     
-
   return (
    
             <div className="row align-item-center col-md-8">
                 <div className="form-group col-md-4">
                     <label htmlFor="inputData">Data</label>
-                    <input type="date" className="form-control" id="inputData" />
+                    <input 
+
+                        type="date" 
+                        className="form-control" 
+                        id="inputData" 
+
+                        />
                 </div>
                 <div className="form-group col-md-4">
                     <label htmlFor="inputQuantidade">Quantidade</label>
-                    <input type="number" className="form-control" id="inputQuantidade" />
+                    <input 
+                    
+                        type="number" 
+                        className="form-control" 
+                        id="inputQuantidade" 
+
+                        />
                 </div>
                 <div className="form-group col-md-4">
                     <label htmlFor="inputValor">Valor</label>
-                    <input type="number" className="form-control" id="inputValor" />
+                    <input 
+
+                        type="number" 
+                        className="form-control" 
+                        id="inputValor" 
+                        
+                        />
+                </div>
+                <div className="form-group col-md-4">
+                    <button 
+                        type="button"
+                        
+                        className="btn btn-primary">
+
+                        Adicionar
+                    </button>
                 </div>
                
             </div>

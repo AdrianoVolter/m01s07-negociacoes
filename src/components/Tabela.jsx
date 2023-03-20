@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 function Tabela(props) {
 
+   const {negociacoes} = props;
+
+
         return (
             <table className="table table-hover table-bordered">
                 <thead className='bg bg-primary text-white'>
@@ -14,11 +17,11 @@ function Tabela(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        this.props.negociacoes.map(negociacao => {
+                    {/* {
+                        negociacoes.map((negociacao, index) => {
                             return (
-                                <tr key={negociacao.id}>
-                                    <td>{negociacao.data.getDate()}/{negociacao.data.getMonth() + 1}/{negociacao.data.getFullYear()}</td>
+                                <tr key={index}>
+                                    <td>{negociacao.data}</td>
                                     <td>{negociacao.quantidade}</td>
                                     <td>{negociacao.valor}</td>
                                     <td>{negociacao.volume}</td>
@@ -26,7 +29,9 @@ function Tabela(props) {
                             )
                         }
                         )
-                    }
+
+
+                    } */}
                 </tbody>
                 <tfoot>
                     <tr>
@@ -38,8 +43,8 @@ function Tabela(props) {
 }
 
 
-Tabela.propTypes = {
-    negociacao: PropTypes.array.isRequired,
-}
+// Tabela.propTypes = {
+//     negociacao: PropTypes.array.isRequired,
+// }
 
 export default Tabela;
