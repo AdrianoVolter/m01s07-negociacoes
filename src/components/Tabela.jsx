@@ -1,50 +1,49 @@
-//Configure o componente Tabela com as seguintes props: negociacoes , array, requerido, imprimir cada linha da tabela atraves de um .map detro de tbody;
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { TabelaLinha } from "./TabelaLinha";
 
-function Tabela(props) {
+export const Tabela = ({ negociacoes }) => {
+  function totalizador() {
+    const valorTotal = negociacoes.reduce((totalizador, negociacao) => {
+      return (
+        totalizador + Number(negociacao.valor) * Number(negociacao.quantidade)
+      );
+    }, 0);
 
-   const {negociacoes} = props;
+    return valorTotal.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  }
 
+  return (
+    <div class="my-5">
+      <table class="table table-hover table-bordered">
+        <thead class="table-primary">
+          <tr>
+            <th>DATA</th>
+            <th>QUANTIDADE</th>
+            <th>VALOR</th>
+            <th>VOLUME</th>
+          </tr>
+        </thead>
 
-        return (
-            <table className="table table-hover table-bordered">
-                <thead className='bg bg-primary text-white'>
-                    <tr>
-                        <th>Data</th>
-                        <th>Quantidade</th>
-                        <th>Valor</th>
-                        <th>Volume</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {/* {
-                        negociacoes.map((negociacao, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{negociacao.data}</td>
-                                    <td>{negociacao.quantidade}</td>
-                                    <td>{negociacao.valor}</td>
-                                    <td>{negociacao.volume}</td>
-                                </tr>
-                            )
-                        }
-                        )
+        <tbody>
+          {negociacoes.map((negociacao) => (
+            <TabelaLinha negociacao={negociacao} />
+          ))}
+        </tbody>
 
+        <tfoot>
+          <tr>
+            <td colspan="3"></td>
+            <td>{totalizador()}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  );
+};
 
-                    } */}
-                </tbody>
-                <tfoot>
-                    <tr>
-
-                    </tr>
-                </tfoot>
-            </table>
-        )
-}
-
-
-// Tabela.propTypes = {
-//     negociacao: PropTypes.array.isRequired,
-// }
-
-export default Tabela;
+Tabela.propTypes = {
+  negociacoes: PropTypes.array.isRequired,
+};

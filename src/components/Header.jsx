@@ -7,6 +7,6 @@ export const Header = (props) => {
   );
 };
 
-// Header.propTypes = {
-//   titulo: PropTypes.string.isRequired,
-// };
+Header.propTypes = {
+  titulo: PropTypes.string.isRequired,
+};

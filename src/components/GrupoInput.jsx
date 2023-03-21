@@ -1,59 +1,30 @@
-import PropTypes from 'prop-types';
-function GrupoInput() {
+import PropTypes from "prop-types";
 
-
-    
+export const GrupoInput = (props) => {
+  const { tipo, etiqueta, id, min, step, valor, aoDigitar } = props;
   return (
-   
-            <div className="row align-item-center col-md-8">
-                <div className="form-group col-md-4">
-                    <label htmlFor="inputData">Data</label>
-                    <input 
-
-                        type="date" 
-                        className="form-control" 
-                        id="inputData" 
-
-                        />
-                </div>
-                <div className="form-group col-md-4">
-                    <label htmlFor="inputQuantidade">Quantidade</label>
-                    <input 
-                    
-                        type="number" 
-                        className="form-control" 
-                        id="inputQuantidade" 
-
-                        />
-                </div>
-                <div className="form-group col-md-4">
-                    <label htmlFor="inputValor">Valor</label>
-                    <input 
-
-                        type="number" 
-                        className="form-control" 
-                        id="inputValor" 
-                        
-                        />
-                </div>
-                <div className="form-group col-md-4">
-                    <button 
-                        type="button"
-                        
-                        className="btn btn-primary">
-
-                        Adicionar
-                    </button>
-                </div>
-               
-            </div>
+    <div class="form-group col">
+      <label htmlFor={id}>{etiqueta}</label>
+      <input
+        type={tipo}
+        id={id}
+        class="form-control"
+        required
+        min={min}
+        step={step}
+        value={valor}
+        onChange={aoDigitar}
+      />
+    </div>
   );
-}
+};
 
 GrupoInput.propTypes = {
-    quandoAdicionar: PropTypes.func.isRequired,
-}
-
-
-
-export default GrupoInput;
+  tipo: PropTypes.string.isRequired,
+  etiqueta: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  min: PropTypes.number,
+  step: PropTypes.number,
+  valor: PropTypes.string.isRequired,
+  aoDigitar: PropTypes.func.isRequired,
+};
